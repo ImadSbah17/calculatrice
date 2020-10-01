@@ -17,12 +17,12 @@ console.log(divPrincipale);
 divPrincipale.classList = "div1"
 
 
-
 // Créer une div enfant de la div principale
 
 let divChild1 = document.createElement('div')
 
 // j'ai mis ma div dans la div principale grace à l'append child
+
 let myDivChild1 = document.querySelector('div')
 myDivChild1.appendChild(divChild1);
 
@@ -34,6 +34,7 @@ console.log(cibleMydivEnfant);
 cibleMydivEnfant.classList = "div2"
 
 // div pour caclulatrice
+// prendre ces div et les importer dans fonctionnement
 
 let myDivForInput = document.createElement('div');
 let myDivPremièreRangée =  document.createElement('div');
@@ -68,6 +69,7 @@ myDivForInput.appendChild(myInput);
 myInput.classList = "myInput"
 
 //création de mes boutons pour ma calculatrice première rangée
+
 let mybutton1_1 =document.createElement('button')
 let mybutton1_2 =document.createElement('button')
 let mybutton1_3 =document.createElement('button')
@@ -107,6 +109,8 @@ mybutton1_2.innerText = "2";
 mybutton1_3.innerText = "3";
 mybutton1_4.innerText = "+";
 
+mybutton1_4.setAttribute('id',"plus")
+
 //création de mes boutons pour ma calculatrice deuxième rangée
 let mybutton2_1 =document.createElement('button')
 let mybutton2_2 =document.createElement('button')
@@ -117,6 +121,8 @@ myDivDeuxièmeRangée.appendChild(mybutton2_1)
 myDivDeuxièmeRangée.appendChild(mybutton2_2)
 myDivDeuxièmeRangée.appendChild(mybutton2_3)
 myDivDeuxièmeRangée.appendChild(mybutton2_4)
+
+
 
 let myButton2Select = document.querySelectorAll('.row1')[2];
 console.log(myButton2Select);
@@ -133,6 +139,8 @@ mybutton2_1.innerText = "4";
 mybutton2_2.innerText = "5";
 mybutton2_3.innerText = "6";
 mybutton2_4.innerText = "-";
+
+mybutton2_4.setAttribute('id',"moins")
 
 //création de mes boutons pour ma calculatrice deuxième rangée
 
@@ -162,6 +170,8 @@ mybutton3_2.innerText = "8";
 mybutton3_3.innerText = "9";
 mybutton3_4.innerText = "*";
 
+mybutton3_4.setAttribute('id',"fois")
+
 //création de mes boutons pour ma calculatrice troisième rangée
 
 let mybutton4_1 =document.createElement('button')
@@ -185,10 +195,25 @@ bouton4.forEach(element => {
     
 });
 
+
+
+
 mybutton4_1.innerText = "C";
 mybutton4_2.innerText = "0";
 mybutton4_3.innerText = "=";
 mybutton4_4.innerText = "/";
+
+mybutton4_1.setAttribute("id","clear");
+mybutton4_3.setAttribute("id","egal");
+mybutton4_4.setAttribute("id","diviser");
+
+
+
+
+
+
+export{body,myDivForInput,myDivPremièreRangée,myDivDeuxièmeRangée,myDivTroisièmeRangée,myDivQuatrièmeRangée,mybutton4_1,mybutton4_2,mybutton4_3,mybutton4_4,mybutton3_1,mybutton3_2,mybutton3_3,
+mybutton3_4,mybutton1_1,mybutton1_2,mybutton1_3,mybutton1_4,mybutton2_1,mybutton2_2,mybutton2_3,mybutton2_4}
 
 
 
