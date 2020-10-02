@@ -1,6 +1,7 @@
 .div1 {
   background-color: grey;
   height: 800px;
+  width: 600px;
   display: flex;
 }
 

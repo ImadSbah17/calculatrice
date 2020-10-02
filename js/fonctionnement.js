@@ -13,7 +13,7 @@ console.log(bouton);
 let tab1 = Array.from(bouton);
 console.log(tab1);
 
-let restult =0;
+// let restult =0;
 let stock1 = 0;
 let stock2 = 0;
 
@@ -22,12 +22,9 @@ tab1.forEach(element => {
     element.addEventListener('click',()=>{
         if(element.innerText == "C"){
             myDivForInput.firstChild.value = ""
-        }else if (element.innerText == "="){
-            
         }
         else {
             myDivForInput.firstChild.value += element.innerText
-
         }
     
     })
@@ -67,6 +64,8 @@ boutonFois.addEventListener('click',()=>{
 
 boutonDiviser.addEventListener('click',()=>{
     stock1= myDivForInput.firstChild.value
+    console.log(stock1);
+
  
 });
 
@@ -77,20 +76,26 @@ boutonDiviser.addEventListener('click',()=>{
 
 
 boutonEgal.addEventListener("click",()=>{
+
     if(myDivForInput.firstChild.value.includes('+')){
+
         let indexPlus = myDivForInput.firstChild.value.indexOf("+");
         stock2 = myDivForInput.firstChild.value.slice(indexPlus+1, myDivForInput.firstChild.value.length);
         myDivForInput.firstChild.value += boutonEgal.innerText;
         myDivForInput.firstChild.value = parseInt(stock1) + parseInt(stock2);
+
     }else if (myDivForInput.firstChild.value.includes('-')){
+        
         let indexMoins = myDivForInput.firstChild.value.indexOf("-");
         stock2 = myDivForInput.firstChild.value.slice(indexMoins+1, myDivForInput.firstChild.value.length);
         myDivForInput.firstChild.value += boutonEgal.innerText;
         myDivForInput.firstChild.value = parseInt(stock1) - parseInt(stock2);
     }
     else if (myDivForInput.firstChild.value.includes('*')){
+
         let indexFois = myDivForInput.firstChild.value.indexOf("*");
         stock2 = myDivForInput.firstChild.value.slice(indexFois+1, myDivForInput.firstChild.value.length);
+
         myDivForInput.firstChild.value += boutonEgal.innerText;
         myDivForInput.firstChild.value = parseInt(stock1) * parseInt(stock2);
 
@@ -106,4 +111,55 @@ boutonEgal.addEventListener("click",()=>{
 
 
 
-console.log(myDivForInput.value);
+
+body.addEventListener('keydown', (e) => {
+    let x = Number(e.key)
+    if (!isNaN(x)) {
+        myDivForInput.firstChild.value  += e.key
+    } else if (e.key == 'Backspace') {
+        myDivForInput.firstChild.value  = ''
+    } else if (e.key == 'c'){
+        myDivForInput.firstChild.value  = ''
+    } else if (e.key == '+') {
+        myDivForInput.firstChild.value  += '+'
+    } else if (e.key == "-") {
+        myDivForInput.firstChild.value  += '-'
+    } else if (e.key == '*') {
+        myDivForInput.firstChild.value  += '*'
+    } else if (e.key == '/') {
+        myDivForInput.firstChild.value  += '/'
+    } else if (e.key == '=') {
+        if(myDivForInput.firstChild.value.includes('+')){
+            let indexPlus = myDivForInput.firstChild.value.indexOf("+");
+            stock1 = myDivForInput.firstChild.value;
+            stock2 = myDivForInput.firstChild.value.slice(indexPlus+1, myDivForInput.firstChild.value.length);
+            myDivForInput.firstChild.value += boutonEgal.innerText;
+            myDivForInput.firstChild.value = parseInt(stock1) + parseInt(stock2);
+        }else if (myDivForInput.firstChild.value.includes('-')){
+            let indexMoins = myDivForInput.firstChild.value.indexOf("-");
+            stock1 = myDivForInput.firstChild.value;
+            stock2 = myDivForInput.firstChild.value.slice(indexMoins+1, myDivForInput.firstChild.value.length);
+            myDivForInput.firstChild.value += boutonEgal.innerText;
+            myDivForInput.firstChild.value = parseInt(stock1) - parseInt(stock2);
+        }
+        else if (myDivForInput.firstChild.value.includes('*')){
+            let indexFois = myDivForInput.firstChild.value.indexOf("*");
+            stock1 = myDivForInput.firstChild.value;
+            stock2 = myDivForInput.firstChild.value.slice(indexFois+1, myDivForInput.firstChild.value.length);
+            myDivForInput.firstChild.value += boutonEgal.innerText;
+            myDivForInput.firstChild.value = parseInt(stock1) * parseInt(stock2);
+    
+        }
+        else if (myDivForInput.firstChild.value.includes('/')){
+            let indexDiviser = myDivForInput.firstChild.value.indexOf("/");
+            stock1 = myDivForInput.firstChild.value;
+            stock2 = myDivForInput.firstChild.value.slice(indexDiviser+1, myDivForInput.firstChild.value.length);
+            myDivForInput.firstChild.value += boutonEgal.innerText;
+            myDivForInput.firstChild.value = parseInt(stock1) / parseInt(stock2);
+    
+        }
+    }
+})
+
+
+
